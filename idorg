@@ -1,0 +1,30 @@
+from __future__ import with_statement
+from AnalyticsClient import AnalyticsClient
+import sys
+import json
+
+from config import Config
+from connector_analytics.analyticsV2 import zohoConnectV2
+
+class Config:
+
+    CLIENTID = Config.CLIENTID;
+    CLIENTSECRET = Config.CLIENTSECRET;
+    REFRESHTOKEN = Config.REFRESHTOKEN;
+
+
+
+class sample:
+
+    ac = AnalyticsClient(Config.CLIENTID, Config.CLIENTSECRET, Config.REFRESHTOKEN)
+
+    def get_orgs(self, ac):
+        result = ac.get_orgs()
+        print(result)
+
+try:
+    obj = sample()
+    obj.get_orgs(obj.ac);
+
+except Exception as e:
+    print(str(e))
